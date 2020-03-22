@@ -11,12 +11,19 @@ public class ArrayUtil {
 	public static void reverseArray(int[] arr){
 		/* code goes here */
 		int[] arrnew = new int[arr.length];
-		for(int i=arr.length-1;i>-1;i--) {
-			for(int j=0;j<arr.length;j++) {
-				arrnew[j] = arr[i];
-			}
+		for(int i=0;i<arr.length;i++) {
+			arrnew[i] = arr[arr.length-1-i];
 		}
-		arr = arrnew;
+		for(int i=0;i<arr.length;i++) {
+			arr[i] = arrnew[i];
+		}
+		
+		int mid = arr.length/2;
+		for(int i=0;i<mid;i++) {
+			int temp = arr[i];
+			arr[i] = arr[arr.length-i-1];
+			arr[arr.length-i-1] = temp;
+		}
 	}
 }
 
