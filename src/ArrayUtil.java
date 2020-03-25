@@ -18,12 +18,12 @@ public class ArrayUtil {
 			arr[i] = arrnew[i];
 		}
 		
-		int mid = arr.length/2;
+		/*int mid = arr.length/2;
 		for(int i=0;i<mid;i++) {
 			int temp = arr[i];
 			arr[i] = arr[arr.length-i-1];
 			arr[arr.length-i-1] = temp;
-		}
+		}*/
 	}
 }
 
@@ -39,6 +39,15 @@ class Matrix{
 	*/
 	public void reverseAllRows(){
 		/* code goes here */
+		int[] matnew = new int[mat[0].length];
+		for(int i=0;i<mat.length;i++) {
+			for(int j=0;j<mat[0].length;j++) {
+				matnew[j] = mat[i][j];
+			}
+			for(int j=0;j<mat[0].length;j++) {
+				mat[i][j] = matnew[matnew.length-j-1];
+			}
+		}
 	}
 	
 	/** Reverses the elements of mat.
@@ -52,6 +61,15 @@ class Matrix{
 	*/
 	public void reverseMatrix(){
 		/* code goes here */
+		reverseAllRows();
+		for(int i=0;i<mat.length;i++) {
+			int mid = mat.length/2;
+			for(int j=0;i<mid;i++) {
+				int[] temp = mat[j];
+				mat[j] = mat[mat.length-j-1];
+				mat[mat.length-j-1] = temp;
+			}
+		}
 	}
 	
 	public int[][] getIntArray(){
